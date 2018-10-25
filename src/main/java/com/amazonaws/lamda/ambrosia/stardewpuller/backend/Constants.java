@@ -28,6 +28,8 @@ public class Constants {
 	public static final String variousAmounts="various amounts";
 	public static final String wikiLink="https://stardewvalleywiki.com/mediawiki/";
 	public static final String nothingFound="I didn't find anything for ";
+	public static final String helpMessage="Sounds like you need some help! You can ask me to search the wiki in a variety of ways, but the best way is to ask to what you can do with an item!";
+	public static final String helpResponse="Try telling me to search the stardew wiki for Abigail.";
 	private Constants() {
 	}
 }
