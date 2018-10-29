@@ -18,8 +18,8 @@ public class LaunchRequestHandler implements RequestHandler {
 
 	@Override
 	public Optional<Response> handle(HandlerInput input) {
-		String speechText = "Welcome to Stardew Valley Hints.";
-        String repromptText = "Please tell me what you want to learn about.";
+		String speechText = "Welcome to Stardew Valley Hints. Try asking me to search the Stardew Wiki for an item!";
+        String repromptText = "What would you like to search for?.";
         return input.getResponseBuilder()
                 .withSimpleCard("Stardew Valley Hints", speechText)
                 .withSpeech(speechText)

@@ -10,6 +10,7 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Request;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
+import com.amazonaws.lamda.ambrosia.stardewpuller.backend.Constants;
 import com.amazonaws.lamda.ambrosia.stardewpuller.backend.WikiPuller;
 
 import static com.amazon.ask.request.Predicates.intentName;
@@ -33,7 +34,14 @@ public class SearchWikiIntentHandler implements RequestHandler {
 			{
 				String toFind = itemNameSlot.getValue();
 				String speechText = WikiPuller.getDescription(toFind);
-				return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Stardew Wiki", speechText).build();
+				if(speechText.equals(Constants.nothingFound + toFind + ", try a different wording for the item?"))
+				{
+					return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Stardew Wiki", speechText).withShouldEndSession(false).build();
+				}
+				else
+				{
+					return input.getResponseBuilder().withSpeech(speechText).withSimpleCard("Stardew Wiki", speechText).build();
+				}
 			}
 			else
 			{
